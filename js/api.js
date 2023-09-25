@@ -1,4 +1,4 @@
-const baseURL = "https://yogendrapawar.online/simplylocalizeapi/api/InstantPhrase";
+const baseURL = "https://www.simplilocalize.com/simplylocalizeapi/api/InstantPhrase";
 
 
 
@@ -27,76 +27,15 @@ export const API = {
             body: JSON.stringify(addphrasedata)
         }),
 
-        approvephrase: async ({ approvephrasedata }) =>
-        customFetch(`${baseURL}/instant-phrase-approve`, {
+        gettranslations: async ({ gettranslationdata }) =>
+        customFetch(`${baseURL}/get-translations`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(approvephrasedata)
+            body: JSON.stringify(gettranslationdata)
         }),
 
-    ignorephrase: async ({ ignorephrasedata }) =>
-        customFetch(`${baseURL}/instant-phrase-ignore`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(ignorephrasedata)
-        }),
 
-    removephrase: async ({ removephrasedata }) =>
-        customFetch(`${baseURL}/instant-phrase-remove`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(removephrasedata)
-        }),
-
-    langbyapikey: async ({ apikey }) =>
-        customFetch(`${baseURL}/get-language-selectorsetting-by-apikey`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(apikey)
-        }),
-
-    langbyprojectid: async ({ projectid }) =>
-        customFetch(`${baseURL}/get-language-selectorsetting-by-projectid`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(projectid)
-        }),
-
-    updatelangselector: async ({ langselectordata }) =>
-        customFetch(`${baseURL}/update-language-selectorsetting`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(langselectordata)
-        }),
-
-    getprojectpublish: async ({ projectpublishdata }) =>
-        customFetch(`${baseURL}/get-project-publishsetting`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(projectpublishdata)
-        }),
-
-    updateprojectpublish: async ({ updateprojectpublishdata }) =>
-        customFetch(`${baseURL}/update-project-publishsetting`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updateprojectpublishdata)
-        }),
 };
 

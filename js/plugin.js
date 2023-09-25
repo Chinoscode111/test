@@ -223,5 +223,38 @@ function processApiData(apiData) {
       }
 }
 
+translationdata = {
+  
+}
 
 
+const getTranslations = (translationdata) => {
+  API.gettranslations({gettranslationdata : translationdata})
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Invalid API');
+        }
+    })
+    .then(data => {
+      const details = data.data.filePathDetails
+      details.forEach(element => {
+        let file = element.filePath;
+         fetch(file)
+         .then(response => response.json())
+         .then(data => {
+            localStorage.setItem(`${element.language}`, data.Phrases)
+         })
+       .catch(error => {
+         console.error('Error fetching/parsing JSON:', error);
+       });
+
+      })
+    })
+    .catch(error => {
+        console.error('API Validation Error:', error);
+    });
+
+
+}
