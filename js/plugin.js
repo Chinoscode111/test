@@ -127,8 +127,8 @@ API.validateAPI({ validatedata: validateData })
     })
     .then(data => {
          apiData = data;
-         console.log(apiData)
-         //processApiData(apiData);
+         //console.log(apiData)
+         processApiData(apiData);
          //const details = apiData.data.filePathDetails
         // details.forEach(element => {
         //   let file = element.filePath;
@@ -155,7 +155,10 @@ function processApiData(apiData) {
   // console.log(apiData);
   const isValidate = apiData.data.isValidate;
   const details = apiData.data.filePathDetails
-  const options = details.map(item => item.language)   
+  const options = details.map(item => item.language)
+  details.forEach(item => {
+    getTranslations(item.language)
+  }) 
         if (isValidate){
           
           
@@ -223,12 +226,17 @@ function processApiData(apiData) {
       }
 }
 
-translationdata = {
+
+
+
+const getTranslations = (lang) => {
+
+  translationdata = {
+    "ApiKey": "ENCjRrj71t4Ce1aVQnbL1to5OeqPmjzwuGNA",
+    "DomainName" : "https://yogendrapawar.online/",
+    "LanguageId":`${lang}`
+  }
   
-}
-
-
-const getTranslations = (translationdata) => {
   API.gettranslations({gettranslationdata : translationdata})
     .then(response => {
         if (response.ok) {
