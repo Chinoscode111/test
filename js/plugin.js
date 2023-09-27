@@ -156,8 +156,14 @@ function processApiData(apiData) {
   const isValidate = apiData.data.isValidate;
   const details = apiData.data.filePathDetails
   const options = details.map(item => item.language)
+  
   details.forEach(item => {
+    const update = localStorage.getItem(`${item.language}`);
+    if(update !== item.lastUpdated){
     getTranslations(item.languageId , item.language)
+    localStorage.setItem(`${item.language}`, item.lastUpdated)
+    }
+    localStorage.setItem(`${item.language}`, item.lastUpdated)
   }) 
         if (isValidate){
           
