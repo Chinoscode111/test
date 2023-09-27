@@ -157,7 +157,7 @@ function processApiData(apiData) {
   const details = apiData.data.filePathDetails
   const options = details.map(item => item.language)
   details.forEach(item => {
-    getTranslations(item.language)
+    getTranslations(item.languageId , item.language)
   }) 
         if (isValidate){
           
@@ -229,12 +229,12 @@ function processApiData(apiData) {
 
 
 
-const getTranslations = (lang) => {
+const getTranslations = (langId , lang) => {
 
   translationdata = {
-    "ApiKey": "ENCjRrj71t4Ce1aVQnbL1to5OeqPmjzwuGNA",
-    "DomainName" : "https://yogendrapawar.online/",
-    "LanguageId":`${lang}`
+    "ApiKey": "9BWsx87ITaDle3yBQeXmi9W8OlceGnrRThSM",
+    "DomainName" : "https://chinoscode111.github.io/test/",
+    "LanguageId":`${langId}`
   }
   
   API.gettranslations({gettranslationdata : translationdata})
@@ -246,20 +246,20 @@ const getTranslations = (lang) => {
         }
     })
     .then(data => {
-      const details = data.data.filePathDetails
-      details.forEach(element => {
-        let file = element.filePath;
-         fetch(file)
-         .then(response => response.json())
-         .then(data => {
-            localStorage.setItem(`${element.language}`, data.Phrases)
-         })
-       .catch(error => {
-         console.error('Error fetching/parsing JSON:', error);
-       });
+      //const details = data.data.filePathDetails
+    //  details.forEach(element => {
+       // let file = element.filePath;
+       //  fetch(file)
+       //  .then(response => response.json())
+        // .then(data => {
+            localStorage.setItem(`${lang}`, data.Phrases)
+       //  })
+      //  .catch(error => {
+      //    console.error('Error fetching/parsing JSON:', error);
+      //  });
 
       })
-    })
+   // })
     .catch(error => {
         console.error('API Validation Error:', error);
     });
