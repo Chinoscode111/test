@@ -127,7 +127,7 @@ API.validateAPI({ validatedata: validateData })
     })
     .then(data => {
          apiData = data;
-         //console.log(apiData)
+        console.log(apiData)
          processApiData(apiData);
          //const details = apiData.data.filePathDetails
         // details.forEach(element => {
