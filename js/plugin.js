@@ -237,7 +237,7 @@ function processApiData(apiData) {
 
 const getTranslations = (langId , lang) => {
 
-  translationdata = {
+ const translationdata = {
     "ApiKey": "9BWsx87ITaDle3yBQeXmi9W8OlceGnrRThSM",
     "DomainName" : "https://chinoscode111.github.io/test/",
     "LanguageId":`${langId}`
