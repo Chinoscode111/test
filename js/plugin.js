@@ -252,6 +252,7 @@ const getTranslations = (langId , lang) => {
         }
     })
     .then(data => {
+      console.log(data)
       //const details = data.data.filePathDetails
     //  details.forEach(element => {
        // let file = element.filePath;
