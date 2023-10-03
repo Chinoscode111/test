@@ -62,11 +62,11 @@ const parsedData = parsePage(document.body);
 
 const convertedData =  {
   "ApiKey": "9BWsx87ITaDle3yBQeXmi9W8OlceGnrRThSM",
-  "DomainName": "https://www.simplylocalize.com",
-  "URL": "https://www.simplylocalize.com/home",
+  "DomainName": `${location.origin}`,
+  "URL": `${location.href}`,
   "InstantPhraseList": parsedData.map(item => ({
     "Phrase": item.text,
-    "UrlPath": "https://www.simplylocalize.com/home", //ask this in meet
+    "UrlPath": `${location.href}`,
     "XPath": item.path
   }))
 };
@@ -161,9 +161,9 @@ function processApiData(apiData) {
     const update = localStorage.getItem(`${item.language}`);
     console.log(update)
     if(update !== item.lastUpdated){
-      //console.log("hello")
+      console.log("hello")
     getTranslations(item.languageId , item.language)
-    localStorage.setItem(`${item.language}`, item.lastUpdated)
+    localStorage.setItem(`${item.languageId}`, item.lastUpdated)
     }
     //localStorage.setItem(`${item.language}`, item.lastUpdated)
   }) 
@@ -241,7 +241,7 @@ const getTranslations = (langId , lang) => {
 
  const translationdata = {
     "ApiKey": "9BWsx87ITaDle3yBQeXmi9W8OlceGnrRThSM",
-    "DomainName" : "https://chinoscode111.github.io/test/",
+    "DomainName" : `${location.href}`,
     "LanguageId":`${langId}`
   }
   
